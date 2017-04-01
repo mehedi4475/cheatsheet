@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Google Map</h3>
+    <div id="map"></div>
+    <script>     
+
+      function webCodeMap() {
+	  
+		//Your location point, It's a variable call "webCodeLocation" we have already store our location at "webCodeLocation" variable
+        var webCodeLocation = {lat: 23.7693179, lng: 90.3638284}; 
+		
+		//Map Icon. You can use custom icon
+		var image = 'http://icons.iconarchive.com/icons/carlosjj/google-jfk/128/maps-icon.png';
+		
+		
+		//Just Create a map object.
+        var map = new google.maps.Map(document.getElementById('map'),{
+		
+		//Default Zoom Control
+		zoom: 11,
+		
+		//Your location point, It's a variable call "webCodeLocation" we have already store our location at "webCodeLocation" variable
+		center: webCodeLocation,
+		
+		 //mouse wheel zoom ON/OFF
+		scrollwheel: false,
+		
+		 //Two types map controll. one is normal map, another is earth.
+		mapTypeControl: false,
+		
+		//Map draggable when click and try to changle the location.
+		draggable: true, 
+		  
+        });
+		
+		
+		
+		//To map overlapping control
+		var marker = new google.maps.Marker({
+		
+			//Your location point, It's a variable call "webCodeLocation" we have already store our location at "webCodeLocation" variable
+			position: webCodeLocation,			
+			
+			//To add the map icon hover text
+			title:"Web Code Institute!",
+			
+			//To add an animation
+			animation: google.maps.Animation.DROP,
+			
+			//To change the icon. You have already store our image url at "image" variable. 
+			icon:image
+			
+		});
+		
+		marker.setMap(map);
+		
+      }  
+	  
+	  
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjOL8uVCBdmxX5ggCVregQ8bMF1-YYHiA&callback=webCodeMap"></script>
+	
+	<!--
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR API KEY HERE&callback=YOUR FUNCTION NAME HEREE"></script>
+	
+	1. Go to https://developers.google.com/maps/documentation/javascript/markers 
+	and create an API key.
+	2. YOUR FUNCTION NAME HEREE. In our example we use our function "webCodeMap". Just write it.
+	-->
+	
+	
+  </body>
+</html>
